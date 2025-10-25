@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard ¹⁴⁷</title>
+
+<!-- Fuente tipo Discord -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Iconos -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;background:#0b0b0f;color:#fff;display:flex;min-height:100vh;}
+nav{width:220px;background:#1e1f24;padding-top:40px;display:flex;flex-direction:column;position:fixed;height:100%;}
+nav a{color:#5865F2;text-decoration:none;padding:15px 20px;margin:5px 10px;border-radius:8px;display:flex;align-items:center;font-weight:500;transition:0.3s;}
+nav a i{margin-right:10px;}
+nav a:hover, nav a.active{background:#5865F2;color:white;transform:scale(1.05);}
+.main{margin-left:220px;padding:40px;width:100%;}
+h1{color:#5865F2;margin-bottom:20px;}
+h2.section-title{color:#8ea1e1;margin-top:20px;}
+section{display:none;opacity:0;transform:translateY(20px);transition:all 0.5s ease;max-width:900px;line-height:1.6;}
+section.active{display:block;opacity:1;transform:translateY(0);}
+p{margin-bottom:15px;}ul{margin-left:20px;}
+.submenu{margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;}
+.submenu .btn{background:#1e1f24;border:2px solid #5865F2;color:#5865F2;padding:10px 18px;border-radius:8px;cursor:pointer;text-decoration:none;transition:0.25s;}
+.submenu .btn:hover{background:#5865F2;color:white;transform:scale(1.05);box-shadow:0 0 12px #5865F2;}
+@media(max-width:768px){body{flex-direction:column;}nav{width:100%;height:auto;position:relative;flex-direction:row;justify-content:center;padding:10px 0;}nav a{margin:0 10px;}.main{margin-left:0;padding:20px;}}
+</style>
+</head>
+<body>
+
+<!-- Menú lateral -->
+<nav>
+  <a href="https://1412969996723945543.botpanel.gg/" target="_blank"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+  <a href="#" onclick="showSection('terms'); setActive(this)"><i class="fas fa-file-contract"></i> Términos</a>
+  <a href="#" onclick="showSection('privacy'); setActive(this)"><i class="fas fa-shield-alt"></i> Privacidad</a>
+</nav>
+
+<!-- Contenido principal -->
+<div class="main">
+  <h1>Bienvenido a ¹⁴⁷ Dashboard</h1>
+
+  <!-- Sección Términos -->
+  <section id="terms">
+    <h2 class="section-title">Términos de Servicio / Terms of Service</h2>
+    <p><strong>Español:</strong> El bot ¹⁴⁷ y su dashboard están diseñados para integrarse con Discord. Al usar el servicio, aceptas estos términos:</p>
+    <ul>
+      <li>No usar el bot para infringir normas de Discord, spam o daño a otros usuarios.</li>
+      <li>Usar solo con fines legales y permitidos.</li>
+      <li>No compartir tu acceso sin autorización.</li>
+      <li>El uso indebido puede derivar en suspensión de acceso.</li>
+    </ul>
+    <p><strong>English:</strong> The ¹⁴⁷ bot and its dashboard are designed to integrate with Discord. By using the service, you agree to:</p>
+    <ul>
+      <li>Do not use the bot to violate Discord rules, spam, or harm others.</li>
+      <li>Use only for legal and permitted purposes.</li>
+      <li>Do not share your access without authorization.</li>
+      <li>Improper use may result in access suspension.</li>
+    </ul>
+    <div class="submenu">
+      <button class="btn" onclick="showSection('privacy')">Ver Privacidad</button>
+    </div>
+  </section>
+
+  <!-- Sección Privacidad -->
+  <section id="privacy">
+    <h2 class="section-title">Política de Privacidad / Privacy Policy</h2>
+    <p><strong>Español:</strong> Solo recopilamos información básica de Discord (nombre de usuario, ID y servidores). No recopilamos contraseñas ni datos sensibles.</p>
+    <p><strong>English:</strong> We only collect basic Discord info (username, ID, servers). We do not collect passwords or sensitive data.</p>
+    <p><strong>Español:</strong> La información se usa únicamente para mejorar tu experiencia y funcionamiento del bot.</p>
+    <p><strong>English:</strong> Information is used solely to improve your experience and bot functionality.</p>
+    <p><strong>Ubicación / Location:</strong> Argentina 🇦🇷</p>
+    <div class="submenu">
+      <button class="btn" onclick="showSection('terms')">Ver Términos</button>
+    </div>
+    <p><strong>Última actualización / Last updated:</strong> 25 de octubre de 2025</p>
+  </section>
+</div>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('section').forEach(sec=>sec.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function setActive(el){
+  document.querySelectorAll('nav a').forEach(link=>link.classList.remove('active'));
+  el.classList.add('active');
+}
+// Mostrar sección inicial
+showSection('terms');
+</script>
+
+</body>
+</html>
